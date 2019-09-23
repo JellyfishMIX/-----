@@ -1,0 +1,207 @@
+.container {
+    width: 100%;
+    background-color: #f5f5f5;
+}
+
+/* 封面 */
+.cover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding-top: 40rpx;
+    padding-bottom: 40rpx;
+}
+.cover__img {
+    width: 200rpx;
+    height: 300rpx;
+    box-shadow: 4rpx 4rpx 6rpx #e3e3e3;
+}
+.cover__title {
+    font-size: 38rpx;
+    font-weight: 600;
+    color: #2f2f2f;
+    margin-top: 20rpx;
+}
+.cover__author {
+    font-size: 28rpx;
+    color: #999999;
+}
+
+/* 通用容器 */
+.sub-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30rpx;
+    background-color: #ffffff;
+    width: 690rpx;
+    padding: 30rpx;
+}
+.sub-container__headline {
+    font-size: 30rpx;
+    font-weight: 600;
+    color: #2f2f2f;
+    margin-bottom: 20rpx;
+}
+
+/* 短评 */
+.comments-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.comments-container__cmp-tag {
+    margin-right: 15rpx;
+    margin-bottom: 10rpx;
+}
+.comments-container__tips {
+    color: #999999;
+}
+/* .comments-container__cmp-tag:nth-child(1)>view {
+    background-color: #fffbdd;
+}
+.comments-container__cmp-tag:nth-child(2)>view {
+    background-color: #eefbff;
+} */
+.ext-tag-container0 {
+    background-color: #fffbdd !important;
+}
+.ext-tag-container1 {
+    background-color: #eefbff !important;
+}
+.comments-container__nums {
+    margin-left: 10rpx;
+    font-size: 22rpx;
+    color: #aaaaaa;
+}
+
+/* 内容简介 */
+.content {
+    text-indent: 65rpx;
+    font-weight: 500;
+}
+
+/* 书本信息 */
+.description-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 28rpx;
+    color: #666666;
+    margin-bottom: 100rpx;
+}
+.vertical {
+    display: flex;
+    flex-direction: column;
+}
+.description-container__description {
+    color: #999999;
+    margin-right: 30rpx;
+}
+
+/* POST框-FAKE */
+.post-container {
+    width: 690rpx;
+    height: 100rpx;
+    padding: 0 30rpx;
+    position: fixed;
+    bottom: 0;
+    z-index: 3;
+    background-color: #ffffff;
+    box-shadow: 2rpx -2rpx 2rpx #e3e3e3;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.post-container__post-fake {
+    width: 460rpx;
+    height: 60rpx;
+    border-radius: 30rpx;
+    font-size: 25rpx;
+    border: 2rpx solid #999999;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 20rpx;
+    color: #999999;
+}
+.post-container__like-share {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.post-container__llike-share__like {
+    margin-right: 30rpx;
+    margin-top: 10rpx;
+}
+.post-container__like-share__share {
+    margin-top: 20rpx;
+    margin-left: 10rpx;
+}
+.post-container__like-share__share-img {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+/* POST框-GENUINE */
+.posting-container {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 3;
+}
+.posting-container__header {
+    width: 100%;
+    border-top: 2rpx solid #f5f5f5;
+    border-bottom: 2rpx solid #f5f5f5;
+    height: 100rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.posting-container__header text {
+    padding: 25rpx;
+}
+.posting-container__header__tips {
+    font-size: 28rpx;
+    color: #bbbbbb;
+}
+.posting-container__cancel {
+    color: #666666;
+}
+.posting-container__comments-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 690rpx;
+    padding: 40rpx 30rpx 0 30rpx;
+}
+.posting-container__comments-container__cmp-tag {
+    margin-right: 15rpx;
+    margin-bottom: 10rpx;
+}
+.posting-container__comments-container__nums {
+    margin-left: 10rpx;
+    font-size: 22rpx;
+    color: #aaaaaa;
+}
+.posting-container__input {
+    width: 690rpx;
+    height: 56rpx;
+    margin: 30rpx auto;
+    background-color: #f5f5f5;
+    border-radius: 30rpx;
+    padding-left: 25rpx;
+}

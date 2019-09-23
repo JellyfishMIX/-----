@@ -1,0 +1,5 @@
+<image class="about"/>
+<!-- 关联小程序，需要关联同一个公众号 -->
+ <navigator class="nav" target="miniProgram" app-id="wx8ffc97ad5bcccc89" open-type="navigate">
+ <image class="vendor" src="images/vendor.png"></image>
+ </navigator>

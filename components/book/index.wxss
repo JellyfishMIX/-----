@@ -1,0 +1,52 @@
+/* components/book/index.wxss */
+.container {
+    margin-top: 30rpx;
+    display: flex;
+    position: relative;
+    box-shadow: 4rpx 4rpx 6rpx #e3e3e3;
+    flex-direction: column;
+    width: 240rpx;
+    height: 360rpx;
+}
+.img {
+    width: 100%;
+    /* height: 100%; */
+    border-radius: 4rpx;
+}
+.description {
+    width: 216rpx;
+    position: absolute;
+    bottom: 0;
+    background-color: #ffffff;
+    padding: 5rpx  10rpx 8rpx 15rpx;
+    font-size: 24rpx;
+    display: flex;
+    flex-direction: column;
+    border-bottom-left-radius: 4rpx;
+    border-bottom-right-radius: 4rpx;
+}
+.title {
+    margin-top: 10rpx;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.author {
+    font-size: 20rpx;
+    color: #999999;
+    margin-top: 10rpx;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    /* margin-bottom: 10rpx; */
+}
+.foot {
+    height: 28rpx;  /* 给右下角“xx 喜欢”占位，防止“xx 喜欢”被wx:if判定为销毁时，“author”下移，破坏原有样式格局 */
+    font-size: 20rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.footer {
+    color: #666666;
+}

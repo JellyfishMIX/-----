@@ -1,0 +1,20 @@
+<view class="container">
+    <!-- 头部 -->
+    <view class="header">
+        <cmp-episode class="header__episode" index="{{classicData.index}}"></cmp-episode>
+        <view class="header__like-share">
+            <cmp-like class="header__like-share__like" bind:like="onLike" likeStatus="{{likeStatus}}" count="{{likeCount}}"></cmp-like>
+            <cmp-image-button class="header__like-share__share" open-type="share">
+                <image class="header__like-share__share-img" slot="img" src="../../images/icon/share.png"></image>
+            </cmp-image-button>
+        </view>
+    </view>
+
+    <!-- 具体内容 -->
+    <cmp-movie hidden="{{classicData.type!=100}}" img="{{classicData.image}}" content="{{classicData.content}}"></cmp-movie>
+    <cmp-music wx:if="{{classicData.type==200}}" img="{{classicData.image}}" content="{{classicData.content}}" src="{{classicData.url}}"></cmp-music>
+    <cmp-essay hidden="{{classicData.type!=300}}" img="{{classicData.image}}" content="{{classicData.content}}"></cmp-essay>
+
+    <!-- 换页条 -->
+    <cmp-navi class="navi" bind:left="onNext" bind:right="onPrevious" title="{{classicData.title}}" first="{{first}}" latest="{{latest}}"></cmp-navi>
+</view>

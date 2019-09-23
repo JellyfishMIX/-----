@@ -1,0 +1,42 @@
+<view class="container">
+    <!-- 背景图 -->
+    <image class="backgroundImg" src="images/my@bg.png"></image>
+
+    <!-- 导航条 -->
+    <view class="about">
+        <view class="about__about-us" bind:tap="onJumpToAbout">
+            <image class="about__about-us__img" src="images/about.png"></image>
+            <text class="about__about-us__description">关于我们</text>
+        </view>
+        <view class="about__about-us">
+            <text class="about__about-us__book-num">{{favoriteBookNum}}</text>
+            <text class="about__about-us__description">喜欢的书</text>
+        </view>
+    </view>
+
+    <!-- 获取用户信息，授权 -->
+    <view class="avatar" wx:if="{{!isAuthorized}}">
+        <!-- <open-data class="avatar__head" type="userAvatarUrl"></open-data> -->
+        <cmp-image-button open-type="getUserInfo" bind:getUserInfo="getAuthorization">
+            <image class="avatar__head" slot="img" src="images/my.png"></image>
+        </cmp-image-button>
+    </view>
+    <view class="avatar" wx:if="{{isAuthorized}}">
+        <image class="avatar__head" src="{{headUrl}}"></image>
+        <text>{{nickName}}</text>
+    </view>
+    <!-- 测试用授权按钮，请勿删除 -->
+    <!-- <button open-type="getUserInfo" bindgetuserinfo="getAuthorization">授权</button> -->
+</view>
+
+<image class="see-more" src="images/study.png" bind:tap="onSeeMore"></image>
+
+<!-- 喜欢列表 -->
+<view class="title">
+    <image class="title__img" src="images/like.png"></image>
+</view>
+<view class="subcontainer">
+    <block wx:for="{{favoriteClassic}}" wx:key="">
+        <cmp-preview classicData="{{item}}"></cmp-preview>
+    </block>
+</view>

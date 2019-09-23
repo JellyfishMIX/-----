@@ -1,0 +1,46 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 头部 */
+.header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 100rpx;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 2rpx solid #f5f5f5;
+    border-bottom: 2rpx solid #f5f5f5;
+}
+.header__episode {
+    margin-left: 20rpx;
+    margin-top: 4rpx;
+}
+.header__like-share {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 30rpx;
+}
+.header__like-share__like {
+    margin-top: 6rpx;
+}
+.header__like-share__share {
+    margin-top: 28rpx;
+    margin-left: 10rpx;
+}
+.header__like-share__share-img {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+/* 换页条 */
+.navi {
+    position: absolute;
+    bottom: 40rpx;
+}

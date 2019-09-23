@@ -1,0 +1,11 @@
+{
+    "usingComponents": {
+        "cmp-like": "../../components/like/index",
+        "cmp-movie": "../../components/classic/movie/index",
+        "cmp-music": "../../components/classic/music/index",
+        "cmp-essay": "../../components/classic/essay/index",
+        "cmp-episode": "../../components/episode/index",
+        "cmp-navi": "../../components/navi/index",
+        "cmp-image-button": "../../components/image-button/index"
+    }
+}

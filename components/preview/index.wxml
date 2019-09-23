@@ -1,0 +1,10 @@
+<wxs src="../../util/filter.wxs" module="util"></wxs>
+
+<view class="container" bind:tap="onPreview">
+    <view class="header">
+        <cmp-tag class="header__tag" text="{{util.type(classicData.type)}}"></cmp-tag>
+        <cmp-like class="header__like" likeStatus="{{classicData.like_status}}" count="{{classicData.fav_nums}}" readOnly="{{true}}"></cmp-like>
+    </view>
+    <image class="{{classicData.type==200?'music-img':'other-img'}}" src="{{classicData.image}}"></image>
+    <text class="content">{{classicData.content}}</text>
+</view>

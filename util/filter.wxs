@@ -1,0 +1,43 @@
+var format = function (text) {
+    if(!text) {
+        return;
+    }
+    var reg = getRegExp('\\\\n', 'g');
+
+    return text.replace(reg, '\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+}
+var limit = function (array, length) {
+    if(!array) {
+        return;
+    }
+    return array.slice(0, length);
+}
+var highlight = function(index) {
+    if(index == 0) {
+        return 'ext-tag-container0';
+    }
+    else if(index == 1) {
+        return 'ext-tag-container1';
+    }
+    else {
+        return '';
+    }
+}
+var type = function(type) {
+    if(type == 100) {
+        return "电影"
+    }
+    else if(type == 200) {
+        return "音乐"
+    }
+    else if(type == 300) {
+        return "句子"
+    }
+}
+
+module.exports = {
+    format: format,
+    limit: limit,
+    highlight: highlight,
+    type: type
+}

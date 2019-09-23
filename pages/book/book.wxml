@@ -1,0 +1,25 @@
+<!-- 图书列表界面 -->
+<view class="container" wx:if="{{!searching}}">
+    <!-- 头部搜索框 -->
+    <view class="header">
+        <view class="header__box" bind:tap="onSearch">
+            <image class="header__box__img" src="../../images/icon/search.png"></image>
+            <text>搜索书籍</text>
+        </view>
+    </view>
+
+    <!-- 大标题"精选"-->
+    <view class="sub-container">
+        <image class="sub-container__img" src="../../images/book/quality.png"></image>
+    </view>
+
+    <!-- 精选书目 -->
+    <view class="books-container">
+        <block wx:for="{{books}}" wx:key="id">
+            <cmp-book class="books-container__cmp-book" book="{{item}}"></cmp-book>
+        </block>
+    </view>
+</view>
+
+<!-- 搜索界面 -->
+<cmp-search wx:if="{{searching}}" bind:cancel="onCancel" more="{{more}}"></cmp-search>

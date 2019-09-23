@@ -1,0 +1,83 @@
+<wxs src="../../util/filter.wxs" module="util"></wxs>
+
+<view class="container">
+    <!-- 封面 -->
+    <view class="cover">
+        <image class="cover__img" src="{{detail.image}}"></image>
+        <view class="cover__title">{{detail.title}}</view>
+        <view class="cover__author">{{detail.author}}</view>
+    </view>
+
+    <!-- 短评 -->
+    <view class="sub-container">
+        <text class="sub-container__headline">短评</text>
+        <view class="comments-container">
+            <text class="comments-container__tips" wx:if="{{comments == false}}">暂无短评</text>
+            <block wx:for="{{util.limit(comments.comments, 10)}}" wx:key="content">
+                <cmp-tag class="comments-container__cmp-tag" text="{{item.content}}" ext-container-class="{{util.highlight(index)}}">
+                    <text class="comments-container__nums" slot="after">{{'+'+item.nums}}</text>
+                </cmp-tag>
+            </block>
+        </view>
+    </view>
+
+    <!-- 内容简介 -->
+    <view class="sub-container">
+        <text class="sub-container__headline">内容简介</text>
+        <text class="content" decode="true">{{util.format(detail.summary)}}</text>
+    </view>
+
+    <!-- 书本信息 -->
+    <view class="sub-container">
+        <text class="sub-container__headline">书本信息</text>
+        <view class="description-container">
+            <view class="vertical description-container__description">
+                <text>出版社</text>
+                <text>出版年</text>
+                <text>页数</text>
+                <text>定价</text>
+                <text>装帧</text>
+            </view>
+            <view class="vertical">
+                <text>{{detail.publisher}}</text>
+                <text>{{detail.pubdate}}</text>
+                <text>{{detail.pages}}</text>
+                <text>{{detail.price}}</text>
+                <text>{{detail.binding}}</text>
+            </view>
+        </view>
+    </view>
+
+    <!-- POST框-FAKE -->
+    <view class="post-container" wx:if="{{!posting}}">
+        <view class="post-container__post-fake" bind:tap="onFakePost">
+            <text>请输入短评</text>
+        </view>
+        <view class="post-container__like-share">
+            <cmp-like class="post-container__like-share__like" bind:like="onLike" likeStatus="{{likeStatus}}" count="{{likeCount}}"></cmp-like>
+            <cmp-image-button class="post-container__like-share__share" open-type="share">
+                <image class="post-container__like-share__share-img" slot="img" src="../../images/icon/share.png"></image>
+            </cmp-image-button>
+        </view>
+    </view>
+
+    <!-- POST框-GENUINE -->
+    <view class="posting-container" wx:if="{{posting}}">
+        <view class="posting-container__header">
+            <text class="posting-container__header__tips" wx:if="{{comments == false}}">暂无短评</text>
+            <text class="posting-container__header__tips" wx:if="{{comments != false}}">可点击标签+1</text>
+            <text class="posting-container__cancel" bind:tap="onCancel">取消</text>
+        </view>
+        <view class="posting-container__comments-container">
+            <block wx:for="{{util.limit(comments.comments, 3)}}" wx:key="content">
+                <cmp-tag class="posting-container__comments-container__cmp-tag" text="{{item.content}}" ext-container-class="{{util.highlight(index)}}" bind:tapping="onPost" numIndex="{{index}}">
+                    <text class="posting-container__comments-containernums" slot="after">{{'+'+item.nums}}</text>
+                </cmp-tag>
+            </block>
+        </view>
+        <input class="posting-container__input" placeholder="短评最多12个字" bindconfirm="onPost" value="{{inputValue}}" auto-focus="true" confirm-hold="{{true}}"></input>
+    </view>
+
+    <!-- 黑色遮蔽 -->
+    <cmp-mask wx:if="{{posting}}" bind:tap="onCancel"></cmp-mask>
+</view>

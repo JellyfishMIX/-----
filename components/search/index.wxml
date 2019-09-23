@@ -1,0 +1,57 @@
+<view class="container">
+    <!-- 头部 -->
+    <view class="header">
+        <view class="search-container">
+            <image class="search-container__search-icon" src="images/search.png"></image>
+            <input class="search-container__bar" placeholder-class="search-container__in-bar" bind:confirm="onConfirm" value="{{inputValue}}" placeholder="请输入书籍名" auto-focus="true"></input>
+            <image class="search-container__cancel-icon" bind:tap="onClear" src="images/cancel.png"></image>
+        </view>
+        <view class="search-container__cancel" bind:tap="onCancel">取消</view>
+    </view>
+
+    <!-- 历史搜索/热门搜索 -->
+    <view wx:if="{{!searching}}">
+        <!-- 历史搜索 -->
+        <view class="history">
+            <view class="history__title">
+                <view class="history__title__chunk"></view>
+                <text>历史搜索</text>
+            </view>
+            <view class="history-container">
+                <block wx:for="{{historyWords}}" wx:key="{{item}}">
+                    <cmp-tag class="history__tag" text="{{item}}" bind:tapping="onConfirm"></cmp-tag>
+                </block>
+            </view>
+        </view>
+
+        <!-- 热门搜索 -->
+        <view class="hot-search">
+            <view class="hot-search__title">
+                <view class="hot-search__title__chunk"></view>
+                <text>热门搜素</text>
+            </view>
+            <view class="hot-search__container">
+                <block wx:for="{{hotWords}}" wx:key="item">
+                    <cmp-tag class="hot-search__tag" text="{{item}}" bind:tapping="onConfirm"></cmp-tag>
+                </block>
+            </view>
+        </view>
+
+    </view>
+
+    <!-- css加载特效cmp-loader（页面居中） -->
+    <cmp-loader class="loader-center" wx:if="{{loaderCenter}}"></cmp-loader>
+
+    <!-- 搜索结果列表 -->
+    <view class="books-container" wx:if="{{searching}}">
+        <block wx:for="{{searchedArray}}" wx:key="{{id}}">
+            <cmp-book class="books-container__cmp-book" book="{{item}}" isLikeShowed="{{false}}"></cmp-book>
+        </block>
+        <!-- <cmp-loader class="loader-center" wx:if="{{loaderCenter}}"></cmp-loader> -->
+    </view>
+    <!-- css加载特效cmp-loader（下滑加载） -->
+    <cmp-loader class="loader-bottom" wx:if="{{loaderBottom}}"></cmp-loader>
+
+    <!-- 没有搜索到书籍 -->
+    <view class="empty-tip" wx:if="{{noResult}}">无搜索结果</view>
+</view>
